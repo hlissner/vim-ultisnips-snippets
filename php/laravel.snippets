@@ -1,0 +1,38 @@
+snippet Asset "Laravel: Asset::*()"
+Asset::$1($2);
+endsnippet
+
+snippet View "Laravel: View::*()"
+View::$1($2);
+endsnippet
+
+snippet viewc "Laravel: View::composer()"
+View::composer(${1:$view}, ${2:$composer});
+endsnippet
+
+snippet viewm "Laravel: View::make()"
+View::make(${1:$view}, ${2:$data});
+endsnippet
+
+snippet viewn "Laravel: View::name()"
+View::name(${1:$view}, ${2:$name});
+endsnippet
+
+snippet viewo "Laravel: View::of()"
+View::of(${1:$name}, ${2:$data});
+endsnippet
+
+snippet views "Laravel: View::share()"
+View::share(${1:$key}, ${2:$value});
+endsnippet
+
+#################
+#  Controllers  #
+#################
+
+snippet action "Laravel: Controller action"
+public function action_${1:index}()
+{
+    ${2:// Code}
+}
+endsnippet

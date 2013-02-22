@@ -30,7 +30,7 @@ snippet $ "PHP variable"
 \$${1:var} ${2:= ${3:value}};
 endsnippet
 
-snippet $= "PHP class property assign"
+snippet this= "PHP class property assign"
 \$this->${1:varName} = \$$1;
 endsnippet
 
@@ -74,7 +74,7 @@ if (${1:/* condition */}) {
 endsnippet
 
 snippet ife "if else"
-if (${1:/* condition */}) {
+if (${1:condition}) {
     ${2:// code...}
 } else {
     ${3:// code...}
@@ -125,7 +125,7 @@ snippet ?: "ternary" i
 $1 ? $2 : $3
 endsnippet
 
-snippet fu= "closure" i
+snippet fu "closure" i
 function($1) ${2:use ($3) }{
     $0
 }
@@ -194,15 +194,15 @@ endsnippet
 #  Datatypes  #
 ###############
 
-snippet =i "int" i
+snippet i "int" i
 int 
 endsnippet
 
-snippet =f "float" i
+snippet f "float" i
 float
 endsnippet
 
-snippet =a "array" i
+snippet a "array" i
 array
 endsnippet
 
@@ -259,40 +259,43 @@ public static function ${1:name}(${2:$param}) {
 }$0
 endsnippet
 
-snippet pros "Protected static function" !b
+snippet pris "Protected static function" !b
 protected static function ${1:name}(${2:$param}) {
-    ${VISUAL}${3:return null;}
-}$0
+    ${VISUAL}$0
+}
 endsnippet
 
-snippet pris "Private static function" !b
+snippet pros "Private static function" !b
 private static function ${1:name}(${2:$param}) {
-    ${VISUAL}${3:return null;}
-}$0
-endsnippet
-
-snippet fu "Function snip" !b
-function ${1:name}(${2:$param}) {
-    ${VISUAL}${3:return null;}
-}$0
+    ${VISUAL}$0
+}
 endsnippet
 
 # Scopes
+snippet fun "function" i
+function ${1:name}($2) {
+    $0
+}
+endsnippet
+
+snippet st "static" i
+static $0
+endsnippet
+
 snippet pu "public"
-public
+public $0
 endsnippet
 
 snippet pr "protected"
-protected
+protected $0
 endsnippet
 
 snippet pv "private"
-private
+private $0
 endsnippet
 
-# Keywords
-snippet abs "abstract" i
-abstract
+snippet ab "abstract"
+abstract $0
 endsnippet
 
 
@@ -305,7 +308,8 @@ snippet new "New class instance" !b
 endsnippet
 
 snippet cl "Class declaration template" !b
-class $1 ${2:extends ${3:parentClass}}${4: implements ${5:interfaceClass}} {
+class $1 ${2:extends ${3:parentClass}}${4: implements ${5:interfaceClass}} 
+{
 
     $0
 
@@ -313,18 +317,19 @@ class $1 ${2:extends ${3:parentClass}}${4: implements ${5:interfaceClass}} {
 endsnippet
 
 snippet in "Interface delcaration template" !b
-interface $1 {
+interface $1 
+{
 
     $0
 
 }
 endsnippet
 
-snippet pr "Dumb debug helper in HTML"
+snippet =pr "Dumb debug helper in HTML"
 echo '<pre>' . var_export($1, 1) . '</pre>';$0
 endsnippet
 
-snippet pc "Dumb debug helper in cli"
+snippet varex "Dumb debug helper in cli"
 var_export($1);$0
 endsnippet
 
@@ -343,17 +348,6 @@ endsnippet
 snippet __set "__set" b
 function __set($name, $value) {
     ${2:$this->$name = $value;}
-}
-endsnippet
-
-#############
-#  Laravel  #
-#############
-
-snippet action "Controller action"
-public function action_${1:index}() 
-{
-    ${2:// Code}
 }
 endsnippet
 
