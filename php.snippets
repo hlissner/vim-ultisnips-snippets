@@ -30,12 +30,12 @@ snippet $ "PHP variable"
 \$${1:var} ${2:= ${3:value}};
 endsnippet
 
-snippet this= "PHP class property assign"
-\$this->${1:varName} = \$$1;
-endsnippet
-
 snippet this "PHP $this"
 \$this->$1;
+endsnippet
+
+snippet this= "PHP class property assign"
+\$this->${1:varName} = \$$1;
 endsnippet
 
 snippet ar "array" i
@@ -74,7 +74,7 @@ if (${1:/* condition */}) {
 endsnippet
 
 snippet ife "if else"
-if (${1:condition}) {
+if (${1:/* condition */}) {
     ${2:// code...}
 } else {
     ${3:// code...}
@@ -259,26 +259,26 @@ public static function ${1:name}(${2:$param}) {
 }$0
 endsnippet
 
-snippet pris "Protected static function" !b
+snippet pros "Protected static function" !b
 protected static function ${1:name}(${2:$param}) {
-    ${VISUAL}$0
-}
+    ${VISUAL}${3:return null;}
+}$0
 endsnippet
 
-snippet pros "Private static function" !b
+snippet pris "Private static function" !b
 private static function ${1:name}(${2:$param}) {
-    ${VISUAL}$0
-}
+    ${VISUAL}${3:return null;}
+}$0
+endsnippet
+
+snippet fun "Function snip" !b
+function ${1:name}(${2:$param}) {
+    ${VISUAL}${3:return null;}
+}$0
 endsnippet
 
 # Scopes
-snippet fun "function" i
-function ${1:name}($2) {
-    $0
-}
-endsnippet
-
-snippet st "static" i
+snippet st "static"
 static $0
 endsnippet
 
@@ -294,7 +294,8 @@ snippet pv "private"
 private $0
 endsnippet
 
-snippet ab "abstract"
+# Keywords
+snippet ab "abstract" i
 abstract $0
 endsnippet
 
@@ -325,11 +326,11 @@ interface $1
 }
 endsnippet
 
-snippet =pr "Dumb debug helper in HTML"
+snippet pr "Dumb debug helper in HTML"
 echo '<pre>' . var_export($1, 1) . '</pre>';$0
 endsnippet
 
-snippet varex "Dumb debug helper in cli"
+snippet pc "Dumb debug helper in cli"
 var_export($1);$0
 endsnippet
 
