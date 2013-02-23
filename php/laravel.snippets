@@ -2,6 +2,44 @@ snippet Asset "Laravel: Asset::*()"
 Asset::$1($2);
 endsnippet
 
+
+##########
+#  AUTH  #
+##########
+
+snippet Auth "Laravel: Auth::*()"
+Auth::$1($2);
+endsnippet
+
+snippet autha
+Auth::attempt(${1:$username}, ${2:$password}, ${3:$remember});
+endsnippet
+
+snippet authc
+Auth::check();
+endsnippet
+
+snippet authg
+Auth::guest();
+endsnippet
+
+snippet authlogin "Laravel: Auth::login()"
+Auth::login(${1:$user}, ${2:$remember});
+endsnippet
+
+snippet authlogout "Laravel: Auth::logout()"
+Auth::logout();
+endsnippet
+
+snippet authu "Laravel: Auth::user()" i
+Auth::user()
+endsnippet
+
+
+##########
+#  VIEW  #
+##########
+
 snippet View "Laravel: View::*()"
 View::$1($2);
 endsnippet
