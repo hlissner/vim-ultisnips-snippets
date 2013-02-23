@@ -263,8 +263,10 @@ while (!Display.isCloseRequested()) {
 Display.destroy();
 endsnippet
 
-###
-# datatypes/variable
+#########################
+#  Datatypes/Variables  #
+#########################
+
 snippet =i "int" i
 int
 endsnippet
@@ -334,8 +336,9 @@ static public final ${1:String} ${2:var} = $3;$0
 endsnippet
 
 
-###
-# Classes
+#############
+#  CLASSES  #
+#############
 
 snippet __ "constructor"
 ${1:public }${2:`!p snip.rv = snip.basename or "ClassName"`}($3) {
