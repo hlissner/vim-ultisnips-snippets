@@ -8,41 +8,41 @@ endsnippet
 
 snippet if "If statement"
 if ${1:condition} then
-	${2:-- code}
+    ${2:-- code}
 end
 endsnippet
 
 snippet else "If-else statement"
 else
-	${3:-- code}
+    ${3:-- code}
 endsnippet
 
 snippet elseif "If-else statement"
 elseif ${1:condition} then
-	${3:-- code}
+    ${3:-- code}
 endsnippet
 
 snippet !f(unction)?! "New function" br
 function ${1:new_function}(${2:args})
-   $0
+    $0
 end
 endsnippet
 
 snippet forp "pair for loop" b
 for ${1:name},${2:val} in pairs(${3:table_name}) do
-   $0
+    $0
 end
 endsnippet
 
 snippet fori "ipair for foop" b
 for ${1:idx},${2:val} in ipairs(${3:table_name}) do
-   $0
+    $0
 end
 endsnippet
 
 snippet for "numeric for loop" b
 for ${1:i}=${2:first},${3:last}${4/^..*/(?0:,:)/}${4:step} do
-   $0
+    $0
 end
 endsnippet
 
@@ -52,74 +52,74 @@ endsnippet
 
 snippet "wh(ile)?" "while loop" r
 while ${1:true} do
-	$2
+    $2
 end
 endsnippet
 
 # LOVE snippets
 snippet dr
 function love.draw()
-	${1}
+    ${1}
 end
 endsnippet
 
 snippet focus
 function love.focus(f)
-	${1}
+    ${1}
 end
 endsnippet
 
 snippet joyp
 function love.joystickpressed(joystick, button)
-	${1}
+    ${1}
 end
 endsnippet
 
 snippet joyr
 function love.joystickreleased(joystick, button)
-	${1}
+    ${1}
 end
 endsnippet
 
 snippet keyp
 function love.keypressed(key, unicode)
-	${1}
+    ${1}
 end
 endsnippet
 
 snippet keyr
 function love.keyreleased(key, unicode)
-	${1}
+    ${1}
 end
 endsnippet
 
 snippet load
 function love.load()
-	${1}
+    ${1}
 end
 endsnippet
 
 snippet mousep
 function love.mousepressed(x, y, button)
-	${1}
+    ${1}
 end
 endsnippet
 
 snippet mouser
 function love.mousepressed(x, y, button)
-	${1}
+    ${1}
 end
 endsnippet
 
 snippet quit
 function love.quit()
-	${1}
+    ${1}
 end
 endsnippet
 
 snippet update
 function love.update(dt)
-	${1}
+    ${1}
 end
 endsnippet
 
