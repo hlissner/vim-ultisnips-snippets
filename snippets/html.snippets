@@ -349,16 +349,17 @@ snippet html5 "HTML5 Template"
 <!DOCTYPE html>
 <html>
 <head>
-    <title>${1}</title>
     <meta charset="utf-8" />
+
+    <title>${1}</title>
 </head>
 <body>
     <header>
         ${2}
     </header>
-    <content>
-        ${3}
-    </content>
+
+	${3}
+
     <footer>
         ${4}
     </footer>
@@ -368,10 +369,6 @@ endsnippet
 
 snippet header "HTML5 header"
 <header>${VISUAL}$0</header>
-endsnippet
-
-snippet content "HTML5 content"
-<content>${VISUAL}$0</content>
 endsnippet
 
 snippet footer "HTML5 footer"
