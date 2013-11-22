@@ -221,7 +221,7 @@ endsnippet
 
 snippet ul "unordered list"
 <ul>
-${VISUAL}$0
+	${VISUAL}$0
 </ul>
 endsnippet
 
@@ -267,8 +267,9 @@ snippet html5 "HTML5 Template"
 <!DOCTYPE html>
 <html>
 <head>
-    <title>${1}</title>
     <meta charset="utf-8" />
+
+    <title>${1}</title>
 </head>
 <body>
 
@@ -276,9 +277,7 @@ snippet html5 "HTML5 Template"
         ${2}
     </header>
 
-    <section>
-        ${3}
-    </section>
+	${3}
 
     <footer>
         ${4}
@@ -290,10 +289,6 @@ endsnippet
 
 snippet header "HTML5 header"
 <header>${VISUAL}$0</header>
-endsnippet
-
-snippet content "HTML5 content"
-<content>${VISUAL}$0</content>
 endsnippet
 
 snippet footer "HTML5 footer"
