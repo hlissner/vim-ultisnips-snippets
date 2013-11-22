@@ -1,42 +1,5 @@
-###########################################################################
-#                            TextMate Snippets                            #
-###########################################################################
 
-############
-# Doctypes #
-############
-snippet doctype "DocType XHTML 1.0 Strict" b
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-endsnippet
-
-snippet doctype "DocType XHTML 1.0 Transitional" b
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-endsnippet
-
-snippet doctype "DocType XHTML 1.1" b
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-
-endsnippet
-
-snippet doctype "HTML - 4.0 Transitional (doctype)" b
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
-
-endsnippet
-
-snippet doctype "HTML - 5.0 (doctype)" b
-<!DOCTYPE html>
-
-endsnippet
-
-#############
 # Shortcuts #
-#############
 snippet down "Down (down)"
 &#x2193;
 endsnippet
@@ -101,6 +64,10 @@ snippet . "Class attribute"
 class="${1}"$0
 endsnippet
 
+snippet "([#.])([a-zA-Z0-9]+)" "XHTML id/class" r
+`!p snip.rv += ('id="%s"' if match.group(1) == "#" else 'class="%s"') % match.group(2) `
+endsnippet
+
 snippet !! "Comment block"
 <!--${VISUAL}$0-->
 endsnippet
@@ -108,43 +75,20 @@ endsnippet
 #######################
 # Conditional inserts #
 #######################
-snippet ! "IE Conditional Comment: Internet Explorer 5_0 only"
-<!--[if IE 5]>$1<![endif]-->$0
+snippet !ie "IE Conitional comment"
+<!--[if ${1:${2:lt} }IE${3: ${4:6}}]>$5<![endif]-->$0
 endsnippet
 
-snippet ! "IE Conditional Comment: Internet Explorer 5_5 only"
-<!--[if IE 5.5]>$1<![endif]-->$0
-endsnippet
-
-snippet ! "IE Conditional Comment: Internet Explorer 5_x"
-<!--[if lt IE 6]>$1<![endif]-->$0
-endsnippet
-
-snippet ! "IE Conditional Comment: Internet Explorer 6 and below"
-<!--[if lte IE 6]>$1<![endif]-->$0
-endsnippet
-
-snippet ! "IE Conditional Comment: Internet Explorer 6 only"
-<!--[if IE 6]>$1<![endif]-->$0
-endsnippet
-
-snippet ! "IE Conditional Comment: Internet Explorer 7+"
-<!--[if gte IE 7]>$1<![endif]-->$0
-endsnippet
-
-snippet ! "IE Conditional Comment: Internet Explorer"
-<!--[if IE]>$1<![endif]-->$0
-endsnippet
-
-snippet ! "IE Conditional Comment: NOT Internet Explorer"
+snippet !!ie "IE Conitional comment"
 <!--[if !IE]><!-->$1<!-- <![endif]-->$0
 endsnippet
 
 #############
 # HTML TAGS #
 #############
-snippet inputl "Input with Label"
-<label for="${2:${1/[[:alpha:]]+|( )/(?1:_:\L$0)/g}}">$1</label><input type="${3:text/submit/hidden/button}" name="${4:$2}" value="$5"${6: id="${7:$2}"} />
+snippet label "Input with Label"
+<label for="${2:${1/[[:alpha:]]+|( )/(?1:_:\L$0)/g}}">$1</label>
+<input type="${3:text/submit/hidden/button}" name="${4:$2}" value="$5"${6: id="${7:$2}"} />
 
 endsnippet
 
@@ -192,9 +136,7 @@ snippet body "XHTML <body>"
 endsnippet
 
 snippet div "XHTML <div>"
-<div$1>
-    $0
-</div>
+<div>$0</div>
 endsnippet
 
 snippet form "XHTML <form>"
@@ -211,32 +153,8 @@ snippet i "Italicize"
 <em>${VISUAL}$0</em>
 endsnippet
 
-snippet h "XHTML <h#>"
-<h${1:1}${2: id="${3/[\w\d]+|( )/(?1:_:\L$0\E)/g}"}>${3}</h${1:1}>
-endsnippet
-
-snippet h1 "XHTML <h1>"
-<h1>${1:}</h1>$0
-endsnippet
-
-snippet h2 "XHTML <h2>"
-<h2>${1:}</h2>$0
-endsnippet
-
-snippet h3 "XHTML <h3>"
-<h3>${1:}</h3>$0
-endsnippet
-
-snippet h4 "XHTML <h4>"
-<h4>${1:}</h4>$0
-endsnippet
-
-snippet h5 "XHTML <h5>"
-<h5>${1:}</h5>$0
-endsnippet
-
-snippet h6 "XHTML <h6>"
-<h6>${1:}</h6>$0
+snippet "h([0-6])" "HTML header" r
+`!p snip.rv = "<h"+match.group(1)+">"`$1`!p snip.rv += "</h"+match.group(1)+">"`$0
 endsnippet
 
 snippet head "XHTML <head>"
@@ -256,11 +174,11 @@ snippet meta "XHTML <meta>"
 endsnippet
 
 snippet scriptsrc "XHTML <script src...>"
-<script src="$1" type="text/javascript" charset="${3:utf-8}"></script>
+<script src="$1" type="text/javascript"></script>$0
 endsnippet
 
 snippet script "XHTML <script>"
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
     $0
 </script>
 endsnippet
@@ -272,7 +190,7 @@ snippet style "XHTML <style>"
 endsnippet
 
 snippet table "XHTML <table>"
-<table border="${1:0}"${2: cellspacing="${3:5}" cellpadding="${4:5}"}>
+<table>
     $0
 </table>
 endsnippet
@@ -286,11 +204,11 @@ snippet tbody "<tbody>"
 endsnippet
 
 snippet a "Link"
-<a href="${1:http://www.${2:url.com}}"${3: target="_blank"}>${VISUAL}$0</a>
+<a href="${1:url}">${VISUAL}$0</a>
 endsnippet
 
 snippet p "paragraph"
-<pi$1>${VISUAL}$0</p>
+<p>${VISUAL}$0</p>
 endsnippet
 
 snippet span "span"
@@ -298,11 +216,11 @@ snippet span "span"
 endsnippet
 
 snippet li "list item"
-<li$1>${VISUAL}$0</li>
+<li>${VISUAL}$0</li>
 endsnippet
 
 snippet ul "unordered list"
-<ul$1>
+<ul>
 ${VISUAL}$0
 </ul>
 endsnippet
@@ -353,15 +271,19 @@ snippet html5 "HTML5 Template"
     <meta charset="utf-8" />
 </head>
 <body>
+
     <header>
         ${2}
     </header>
-    <content>
+
+    <section>
         ${3}
-    </content>
+    </section>
+
     <footer>
         ${4}
     </footer>
+
 </body>
 </html>
 endsnippet
@@ -378,24 +300,24 @@ snippet footer "HTML5 footer"
 <footer>${VISUAL}$0</footer>
 endsnippet
 
-snippet article "HTML5 article"
-<article$1>
+snippet "arti?c?l?e?" "HTML5 article" r
+<article>
     $0
 </article>
 endsnippet
 
 snippet aside "HTML5 aside"
-<aside$1>$0</aside>
+<aside>$0</aside>
 endsnippet
 
-snippet section "HTML5 section"
-<section$1>
+snippet "sect?i?o?n?" "HTML5 section" r
+<section>
     ${VISUAL}$0
 </section>
 endsnippet
 
 snippet code "HTML code"
-<code$1>$0</code>
+<code>$0</code>
 endsnippet
 
 snippet button "HTML button"
@@ -407,14 +329,7 @@ snippet cite "HTML cite"
 endsnippet
 
 snippet pre "HTML pre"
-<pre$1>$0</pre>
-endsnippet
-
-#########################
-#  Javascript snippets  #
-#########################
-snippet jq "jq"
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/${1:1.7.1}/jquery.min.js" type="text/javascript" charset="utf-8"></script>${2}
+<pre>$0</pre>
 endsnippet
 
 # vim:ft=snippets:
