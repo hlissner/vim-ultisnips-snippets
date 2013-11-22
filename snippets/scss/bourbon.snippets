@@ -1,0 +1,110 @@
+# bourbon.io
+
+snippet dkn
+darken(${1}, ${2})
+endsnippet
+snippet ltn
+lighten(${1}, ${2})
+endsnippet
+snippet tnt
+tint(${1}, ${2})
+endsnippet
+snippet shd
+shade(${1}, ${2})
+endsnippet
+ 
+#Bourbon Snippets
+snippet +bgz
+@include background-size(${1});${2}
+endsnippet
+snippet +bgz:a
+@include background-size(auto);
+endsnippet
+snippet +bgz:ct
+@include background-size(contain);
+endsnippet
+snippet +bgz:cv
+@include background-size(cover);
+endsnippet
+snippet +bxz
+@include box-sizing(${1});${2}
+endsnippet
+snippet +bxz:bb
+@include box-sizing(border-box);
+endsnippet
+snippet +button
+@include button(${1});
+endsnippet
+snippet +clf
+@include clearfix;
+endsnippet
+snippet +d:ib
+@include inline-block;
+endsnippet
+snippet +hdt
+@include hide-text;
+endsnippet
+snippet +imr
+@include image-rendering(${1});
+endsnippet
+snippet +imr:o
+@include image-rendering(optimizeSpeed);
+endsnippet
+snippet inputs
+#{$all-text-inputs} {
+	${1}
+}
+endsnippet
+snippet +lg
+@include linear-gradient(${1}, ${2});
+endsnippet
+snippet +pos
+@include position(${1}, ${2});${3}
+endsnippet
+snippet +pos:a
+@include position(absolute, ${1: 0 0 0 0});${2}
+endsnippet
+snippet +pos:f
+@include position(fixed, ${1: 0 0 0 0});${2}
+endsnippet
+snippet +rg
+@include radial-gradient(${1}, ${2});
+endsnippet
+snippet +trns
+@include transition;
+endsnippet
+snippet +trns+
+@include transition(${1:all} ${2:2.0s} ${3:ease-in-out});${4}
+endsnippet
+snippet +trfm
+@include transform(${1});
+endsnippet
+snippet +size
+@include size($1);
+endsnippet
+
+#Bourbon Functions
+snippet gw
+grid-width(${1})
+endsnippet
+snippet gwv
+$gw-column: 100px;          // Column Width
+$gw-gutter: 40px;           // Gutter Width
+endsnippet
+snippet fg
+flex-grid(${1})
+endsnippet
+snippet fgu
+flex-gutter(${1})
+endsnippet
+snippet fgv
+$fg-column: 60px;             // Column Width
+$fg-gutter: 25px;             // Gutter Width
+$fg-max-columns: 12;          // Total Columns For Main Container
+endsnippet
+snippet mods
+modular-scale(${1}, ${2}, ${3:1.618})
+endsnippet
+snippet em
+em(${1})
+endsnippet
