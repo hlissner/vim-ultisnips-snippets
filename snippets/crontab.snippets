@@ -1,0 +1,13 @@
+
+snippet basic "Blank crontab"
+# min:hrs:month-day:month:weekday
+${1:min} ${2:hrs} ${3:day-of-month} ${4:month} ${5:weekday} ${6:COMMAND}
+endsnippet
+
+snippet 15min "Crontab for every 15 minutes"
+*/15 * * * * ${1:COMMAND}
+endsnippet
+
+snippet everyday "Crontab for everyday"
+* * * * */7 ${1:COMMAND}
+endsnippet
