@@ -40,9 +40,14 @@ int main(int argc, char const *argv[])
 endsnippet
 
 snippet for "for int loop (fori)"
-for (${4:size_t} ${2:i} = 0; $2 < ${1:count}; ${3:++$2})
-{
+for (${4:size_t} ${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {
 	${0:/* code */}
+}
+endsnippet
+
+snippet while "while loop"
+while (${1:/* condition */}) {
+	$0
 }
 endsnippet
 
@@ -82,21 +87,37 @@ fprintf(${1:stderr}, "${2:%s}\n"${2/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$3${2/([^%]|%
 endsnippet
 
 snippet if "if .. (if)"
-if (${1:/* condition */})
-{
+if (${1:/* condition */}) {
 	${0:/* code */}
 }
 endsnippet
 
-snippet printf "printf .. (printf)"
+snippet "pri?n?t?f?" "printf .. (printf)" r
 printf("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2:\);)/}
 endsnippet
 
-snippet st "struct"
-struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`}
-{
+snippet "str?u?c?t?" "struct" r
+struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`} {
 	${0:/* data */}
 };
+endsnippet
+
+snippet switch "Switch statement"
+switch (${1:/* condition */}) {
+	$0
+}
+endsnippet
+
+snippet case "Switch-case"
+case ${1:/* value */}:
+	$2break;
+$0
+endsnippet
+
+snippet fu "function"
+${1:void} ${2:functionName}($3) {
+	$0
+}
 endsnippet
 
 # vim:ft=snippets:
