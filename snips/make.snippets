@@ -1,0 +1,23 @@
+
+snippet base "Base makefile"
+CC=clang++
+CFLAGS=-Wall -Wextra -Wno-unused-parameter -stdlib=libc++ -std=c++11
+CINCLUDE=-I/usr/local/include -L/usr/local/lib
+CLIBS=-lArtemisCpp -lsfml-graphics -lsfml-window -lsfml-system
+
+BIN=bin/${1:Executable}
+
+CMD=\$(CC) \$(CFLAGS) \$(CINCLUDE) \$(CLIBS) -o \$(BIN)${1:Executable}
+
+########################################################################
+
+$0
+
+clean:
+	rm -rf \$(BIN)${1:Executable}
+endsnippet
+
+snippet : "Make rule"
+${1:target}: ${2:deps}
+	$0
+endsnippet
