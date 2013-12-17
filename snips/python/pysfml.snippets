@@ -1,0 +1,19 @@
+
+snippet gameloop "PySFML app loop" b
+# start the game loop
+while window.is_open:
+	# process events
+	for event in window.events:
+		# close window: exit
+		if type(event) is sf.CloseEvent:
+			window.close()
+
+	window.clear() # clear screen
+	window.draw(sprite) # draw the sprite
+	window.draw(text) # draw the string
+	window.display() # update the window
+endsnippet
+
+snippet sfr
+sf.RenderWindow(sf.VideoMode(${1:640}, ${2:480}), "${3:Game Title}")
+endsnippet
