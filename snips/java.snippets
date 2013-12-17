@@ -31,21 +31,16 @@ break;
 
 endsnippet
 
-snippet cs "case" b
+snippet case "case" b
 case $1:
 	$2
 $0
 endsnippet
 
-snippet ca "catch" b
-catch (${1:Exception} ${2:e})`!p nl(snip)`{
-	$0
-}
-endsnippet
-
 snippet cl "class" b
 class ${1:`!p
-snip.rv = snip.basename or "untitled"`} ${2:extends ${3:Parent} }${4:implements ${5:Interface} }{
+snip.rv = snip.basename or "untitled"`} ${2:extends ${3:Parent} }${4:implements ${5:Interface} }
+{
 
 	$0
 
@@ -66,13 +61,13 @@ catch (${1:Exception} e) {
 }
 endsnippet
 
-snippet fin "finally block (try-catch)"
+snippet finally "finally block (try-catch)"
 finally {
     ${VISUAL}$3
 }
 endsnippet
 
-snippet de "default" b
+snippet default "default" b
 default:
 	${VISUAL}$0
 endsnippet
