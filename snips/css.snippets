@@ -557,4 +557,18 @@ snippet ls "letter-spacing"
 letter-spacing: ${1:0};
 endsnippet
 
+# Media Queries
+
+snippet media "media-query"
+@media ${1:screen} {
+	$0
+}
+endsnippet
+
+snippet mediar "media-query responsive design"
+@media all and ${1:(max-width: ${2:600px})}${3: and (min-width: ${4:400px})} {
+	$0
+}
+endsnippet
+
 # vim:ft=snippets:
