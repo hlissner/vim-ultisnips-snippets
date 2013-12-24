@@ -1,19 +1,40 @@
 
-snippet gameloop "PySFML app loop" b
+snippet loop "PySFML app loop" b
 # start the game loop
-while window.is_open:
+while ${1:window}.is_open:
 	# process events
-	for event in window.events:
+	for event in ${1:window}.events:
 		# close window: exit
 		if type(event) is sf.CloseEvent:
-			window.close()
+			${1:window}.close()
 
-	window.clear() # clear screen
-	window.draw(sprite) # draw the sprite
-	window.draw(text) # draw the string
-	window.display() # update the window
+	${1:window}.clear() # clear screen
+
+	${0:# Code goes here}
+
+	${1:window}.display() # update the window
 endsnippet
 
-snippet sfr
+snippet eloop "PySFML Event loop"
+# process events
+for event in ${1:window}.events:
+	# close window: exit
+	if type(event) is sf.CloseEvent:
+		$1.close()
+
+	$0
+endsnippet
+
+snippet window
 sf.RenderWindow(sf.VideoMode(${1:640}, ${2:480}), "${3:Game Title}")
 endsnippet
+
+snippet key "SFML sf::Keyboard" i
+sf.Keyboard
+endsnippet
+
+snippet keyp "SFML isKeyPressed" i
+sf.Keyboard.isKeyPressed(${1:sf.Keyboard.${2:Button}})
+endsnippet
+
+

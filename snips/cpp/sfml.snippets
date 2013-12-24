@@ -1,0 +1,38 @@
+# Snippets for the SFML library <http://www.sfml-dev.org>
+
+snippet loop "SFML Game loop"
+while (${1:window}.isOpen()) {
+	sf::Event event;
+	while (${1:window}.pollEvent(event)) {
+		if (event.type == sf::Event::Closed)
+			${1:window}.close();
+	}
+
+	${0:// Code goes here}
+
+	${1:window}.clear();
+	${1:window}.display();
+}
+endsnippet
+
+snippet eloop "SFML Event loop"
+sf::Event event;
+while (${1:window}.pollEvent(${2:event})) {
+	if (${2:event}.type == sf::Event::Closed)
+		${1:window}.close();
+
+	${0:// Code goes here}
+}
+endsnippet
+
+snippet window "SFML RenderWindow"
+sf::RenderWindow ${1:window}(sf::VideoMode(${2:640}, ${3:480}), ${4:"Untitled"});
+endsnippet
+
+snippet key "SFML sf::Keyboard" i
+sf::Keyboard
+endsnippet
+
+snippet keyp "SFML isKeyPressed" i
+sf::Keyboard::isKeyPressed(${1:sf::Keyboard::${2:Button}});
+endsnippet
