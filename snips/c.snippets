@@ -72,7 +72,7 @@ ${0}
 
 endsnippet
 
-snippet td "Typedef"
+snippet typedef "Typedef"
 typedef ${1:int} ${2:MyCustomType};
 endsnippet
 
@@ -114,10 +114,14 @@ case ${1:/* value */}:
 $0
 endsnippet
 
-snippet fu "function"
+snippet function "function"
 ${1:void} ${2:functionName}($3) {
 	$0
 }
+endsnippet
+
+snippet = "Variable assignment"
+${1:int }${2:varname} = ${3:value};$0
 endsnippet
 
 # vim:ft=snippets:
