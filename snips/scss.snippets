@@ -1,6 +1,6 @@
 extends css
 
-snippet + "include"
+snippet include "include"
 @include $1;
 endsnippet
 
@@ -8,14 +8,14 @@ snippet if "@if"
 @if $1
 endsnippet
 
-snippet = "mixin"
+snippet mixin "mixin"
 @mixin ${1:name} {
     $0
 }
 endsnippet
 
-snippet ex "extends"
-@extends $1;
+snippet extends "extends"
+@extend $1;
 endsnippet
 
 snippet clear "clearfix"
@@ -28,8 +28,4 @@ display: inline-block;
 	visibility: hidden;
 }
 * html & { height: 1px }
-endsnippet
-
-snippet "test([0-9]+)" "test" r
-color: `!p snip.rv = match.group(1)`$0;
 endsnippet
