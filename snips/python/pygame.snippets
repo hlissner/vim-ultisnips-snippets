@@ -1,0 +1,42 @@
+
+snippet pygame "PyGame base"
+import pygame, sys
+
+# Initialization
+pygame.init()
+window = pygame.display.set_mode((${1:640}, ${2:480}))
+pygame.display.set_caption("${3:Untitled}")
+
+# Game loop
+is_running = True
+while is_running:
+	for ${4:e} in pygame.event.get():
+		if $4.type == pygame.QUIT:
+			is_running = False
+	
+	${0:# Code here}
+
+	pygame.display.update()
+
+# Closing down
+pygame.quit()
+sys.exit()
+endsnippet
+
+snippet pygcolor "PyGame color" i
+pygame.Color(${1:0}, ${2:0}, ${3:0})
+endsnippet
+
+snippet pygdraw "PyGame draw" i
+pygame.draw.${1:rect}(${2:window}, ${3:color}, ${4:object})
+endsnippet
+
+snippet pygclock "PyGame: Clock()" i
+pygame.time.Clock()
+endsnippet
+
+snippet pygfont "PyGame: Load/render font"
+font = pygame.font.Font("${1:font.ttf}", ${2:32})
+text_surface = font.render("${3:Text}", ${4:True}, ${5: fg_color}${6:, ${7:bg_color}})
+text_rect = font_surface.get_rect()
+endsnippet
