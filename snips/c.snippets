@@ -14,11 +14,11 @@ ${VISUAL:code}$0
 #endif
 endsnippet
 
-snippet inc "#include local header (inc)"
+snippet in "#include local header (inc)"
 #include "${1:`!p snip.rv = snip.basename + '.h'`}"
 endsnippet
 
-snippet Inc "#include <> (Inc)"
+snippet inc "#include <> (Inc)"
 #include <${1:.h}>
 endsnippet
 
@@ -92,11 +92,11 @@ if (${1:/* condition */}) {
 }
 endsnippet
 
-snippet "pri?n?t?f?" "printf .. (printf)" r
+snippet printf "printf .. (printf)"
 printf("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2:\);)/}
 endsnippet
 
-snippet "str?u?c?t?" "struct" r
+snippet struct "struct" 
 struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`} {
 	${0:/* data */}
 };
@@ -120,8 +120,8 @@ ${1:void} ${2:functionName}($3) {
 }
 endsnippet
 
-snippet = "Variable assignment"
-${1:int }${2:varname} = ${3:value};$0
+snippet = "Variable assignment" i
+${1:varname} = ${2:value};$0
 endsnippet
 
 # vim:ft=snippets:

@@ -26,7 +26,7 @@ snippet as "assert" b
 assert ${1:test}${2/(.+)/(?1: \: ")/}${2:Failure message}${2/(.+)/(?1:")/};$0
 endsnippet
 
-snippet br "break"
+snippet break "break"
 break;
 
 endsnippet
@@ -37,7 +37,7 @@ case $1:
 $0
 endsnippet
 
-snippet cl "class" b
+snippet class "class" b
 class ${1:`!p
 snip.rv = snip.basename or "untitled"`} ${2:extends ${3:Parent} }${4:implements ${5:Interface} }
 {
@@ -262,68 +262,28 @@ endsnippet
 #  Datatypes/Variables  #
 #########################
 
-snippet =i "int" i
-int
-endsnippet
-
-snippet =b "boolean" i
-boolean
-endsnippet
-
-snippet =d "double" i
-double
-endsnippet
-
-snippet =f "float" i
-float
-endsnippet
-
-snippet =e "enum" i
-enum
-endsnippet
-
-snippet =S "String" i
-String
-endsnippet
-
 # Assignments
-snippet i= "int assign"
-int ${1:variableName} = ${2:0};
+snippet = "variable assignment"
+${1:variableName} = ${2:null};
 endsnippet
 
-snippet b= "boolean assign"
-bool ${1:variableName} = ${2:0};
-endsnippet
-
-snippet d= "double" i
-double ${1:variableName} = ${2:0.0};
-endsnippet
-
-snippet f= "float" i
-float ${1:variableName} = ${2:0.0}f;
-endsnippet
-
-snippet e= "enum" i
+snippet enum "enum" i
 enum ${1:Name} {
     $2
 }
 endsnippet
 
-snippet S= "String" i
-String ${1:variableName} = ${2:null};
-endsnippet
-
 #
 snippet $ "variable declaration"
-${1:Type} ${2:variableName}$0;
+${1:int} ${2:variableName};
 endsnippet
 
-snippet == "assignment"
-${1:variableName}${3: = }${4:null};
+snippet == "assignment" i
+${1:x}${2: == }${3:y};
 endsnippet
 
-snippet .= "argument to property assignment"
-this.${1:propertyName} = $1;
+snippet this "argument to property assignment" i
+this.${1:obj}
 endsnippet
 
 snippet === "constant" b
