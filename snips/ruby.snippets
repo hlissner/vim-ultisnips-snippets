@@ -382,20 +382,6 @@ rescue
 end
 endsnippet
 
-snippet begin "begin ... rescue ... else ... ensure ... end"
-begin
-	${1:# Raise exception}
-rescue Exception => e
-	puts e.message
-	puts e.backtrace.inspect
-	${2:# Rescue}
-else
-	${3:# other exception}
-ensure
-	${0:# always excute}
-end
-endsnippet
-
 snippet rescue
 rescue Exception => e
 	puts e.message
