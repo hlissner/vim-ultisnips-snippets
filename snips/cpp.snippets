@@ -7,7 +7,7 @@ snippet beginend "$1.begin(), $1.end() (beginend)"
 ${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}begin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}end()
 endsnippet
 
-snippet cl "class .. (class)"
+snippet class "class .. (class)"
 class ${1:`!p snip.rv = snip.basename or "name"`}
 {
 public:

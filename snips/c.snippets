@@ -2,10 +2,14 @@
 ###########################################################################
 #                            TextMate Snippets                            #
 ###########################################################################
-snippet def "#ifndef ... #define ... #endif"
+snippet #ifdef "#ifndef ... #define ... #endif"
 #ifndef ${1/([A-Za-z0-9_]+).*/$1/}
 #define ${1:SYMBOL} ${2:value}
 #endif
+endsnippet
+
+snippet #def "#define ..."
+#define ${1:SYMBOL} ${2:VALUE}
 endsnippet
 
 snippet #if "#if #endif" !b
@@ -68,7 +72,7 @@ else:
 
 ${0}
 
-#endif /* end of include guard: $1 */
+#endif
 
 endsnippet
 
